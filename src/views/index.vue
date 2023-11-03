@@ -183,7 +183,7 @@ const data = ref([
       <VxpSwitch v-model:checked="switchChecked" />
     </PageMain>
     <PageMain>
-      <VxpTable :columns="columns" :data="data" :width="1000" :side-padding="[10, 5]" />
+      <VxpTable :columns="columns" :data="data" :width="1000" :side-padding="[10, 5]" style="width: 100%;" />
     </PageMain>
   </div>
 </template>
