@@ -2,7 +2,7 @@
 import eruda from 'eruda'
 import VConsole from 'vconsole'
 import hotkeys from 'hotkeys-js'
-import { enUSLocale } from 'vexip-ui'
+import { zhCNLocale } from 'vexip-ui'
 import eventBus from './utils/eventBus'
 import useSettingsStore from '@/store/modules/settings'
 import useMenuStore from '@/store/modules/menu'
@@ -70,15 +70,17 @@ import.meta.env.VITE_APP_DEBUG_TOOL === 'vconsole' && new VConsole()
 </script>
 
 <template>
-  <RouterView
-    v-slot="{ Component, route }"
-    :style="{
-      '--g-main-sidebar-actual-width': mainSidebarActualWidth,
-      '--g-sub-sidebar-actual-width': subSidebarActualWidth,
-    }"
-  >
-    <component :is="Component" v-if="auth(route.meta.auth ?? '')" />
-    <NotAllowed v-else />
-  </RouterView>
-  <SystemInfo />
+  <VxpConfigProvider :locale="zhCNLocale()">
+    <RouterView
+      v-slot="{ Component, route }"
+      :style="{
+        '--g-main-sidebar-actual-width': mainSidebarActualWidth,
+        '--g-sub-sidebar-actual-width': subSidebarActualWidth,
+      }"
+    >
+      <component :is="Component" v-if="auth(route.meta.auth ?? '')" />
+      <NotAllowed v-else />
+    </RouterView>
+    <SystemInfo />
+  </VxpConfigProvider>
 </template>

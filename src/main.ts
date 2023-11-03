@@ -2,7 +2,7 @@ import '@/utils/baidu'
 
 import '@/utils/system.copyright'
 
-import { install, zhCNLocale } from 'vexip-ui'
+import { install } from 'vexip-ui'
 import 'vexip-ui/css/index.css'
 import 'vexip-ui/css/dark/index.css'
 
@@ -36,7 +36,6 @@ import '@/assets/styles/globals.scss'
 const app = createApp(App)
 app.use(install, {
   prefix: 'vxp',
-  locale: zhCNLocale(),
 })
 app.use(FloatingVue, {
   distance: 12,
