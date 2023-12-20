@@ -122,7 +122,7 @@ const data = ref([
       </template>
     </PageHeader>
     <PageMain>
-      <VxpSpace wrap>
+      <VxpSpace>
         <VxpButton type="primary">
           Primary Button
         </VxpButton>
@@ -161,7 +161,7 @@ const data = ref([
       </VxpRadioGroup>
     </PageMain>
     <PageMain>
-      <VxpSpace direction="vertical" :size="12">
+      <VxpSpace>
         <VxpDatePicker v-model:value="datePickerValue1" />
         <VxpDatePicker v-model:value="datePickerValue2" type="datetime" />
         <VxpDatePicker v-model:value="datePickerValue3" type="month" />
@@ -176,8 +176,10 @@ const data = ref([
       </VxpSpace>
     </PageMain>
     <PageMain>
-      <VxpSlider v-model:value="sliderValue1" />
-      <VxpSlider v-model:value="sliderValue2" range />
+      <VxpSpace vertical>
+        <VxpSlider v-model:value="sliderValue1" />
+        <VxpSlider v-model:value="sliderValue2" range />
+      </VxpSpace>
     </PageMain>
     <PageMain>
       <VxpSwitch v-model:checked="switchChecked" />
