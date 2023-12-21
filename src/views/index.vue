@@ -7,7 +7,7 @@ meta:
 
 <script lang="ts" setup>
 import type { Dayjs } from 'dayjs'
-import { defineColumns } from 'vexip-ui'
+import { defineTableColumns } from 'vexip-ui'
 
 const inputValue = ref<string>('')
 const inputValue1 = ref<string>('')
@@ -40,8 +40,9 @@ const sliderValue2 = ref<[number, number]>([20, 50])
 
 const switchChecked = ref<boolean>(false)
 
+const currentYear = new Date().getFullYear()
 const columns = ref(
-  defineColumns([
+  defineTableColumns([
     {
       name: 'First Name',
       key: 'firstName',
@@ -53,58 +54,30 @@ const columns = ref(
     {
       name: 'Job',
       key: 'job',
-      accessor(row) {
-        return row.job
-      },
+      accessor: row => row.job,
+      formatter: job => `Good ${job}`,
     },
     {
       name: 'Age',
       key: 'age',
+      formatter: age => `${age} (${currentYear - age})`,
     },
   ]),
 )
-const data = ref([
-  {
-    id: '1',
-    job: 'Cashier',
-    email: 'Angelique_Walsh2268@twace.org',
-    firstName: 'Angelique',
-    lastName: 'Walsh',
-    age: '58',
-  },
-  {
-    id: '2',
-    job: 'Stockbroker',
-    email: 'Aeris_Drake5867@gmail.com',
-    firstName: 'Aeris',
-    lastName: 'Drake',
-    age: '40',
-  },
-  {
-    id: '3',
-    job: 'Machine Operator',
-    email: 'Elisabeth_Rogers7566@sheye.org',
-    firstName: 'Elisabeth',
-    lastName: 'Rogers',
-    age: '56',
-  },
-  {
-    id: '4',
-    job: 'Audiologist',
-    email: 'Sharon_Tanner5855@nickia.com',
-    firstName: 'Sharon',
-    lastName: 'Tanner',
-    age: '58',
-  },
-  {
-    id: '5',
-    job: 'Cashier',
-    email: 'Evie_Farmer6650@typill.biz',
-    firstName: 'Evie',
-    lastName: 'Farmer',
-    age: '26',
-  },
-])
+const data = ref(
+  Array.from({ length: 5 }, (_, index) => {
+    return {
+      id: index + 1,
+      firstName: `First ${index}`,
+      lastName: `Last ${index}`,
+      company: `Company ${index}`,
+      job: `Job ${index}`,
+      age: 20 + index,
+      email: `email${index}@vexip.ui`,
+      address: `Address ${index}`,
+    }
+  }),
+)
 </script>
 
 <template>
