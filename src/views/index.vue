@@ -82,7 +82,7 @@ const data = ref(
 
 <template>
   <div>
-    <PageHeader>
+    <FaPageHeader>
       <template #title>
         <div class="flex items-center gap-4">
           欢迎使用 Fantastic-admin
@@ -93,8 +93,8 @@ const data = ref(
           本演示站基于 Fantastic-admin 源码开发，将 Element Plus 替换为 Vexip UI ，详细操作步骤请阅读官方文档。
         </div>
       </template>
-    </PageHeader>
-    <PageMain>
+    </FaPageHeader>
+    <FaPageMain>
       <VxpSpace>
         <VxpButton type="primary">
           Primary Button
@@ -110,14 +110,14 @@ const data = ref(
           Ghost Button
         </VxpButton>
       </VxpSpace>
-    </PageMain>
-    <PageMain>
+    </FaPageMain>
+    <FaPageMain>
       <VxpSpace direction="vertical">
         <VxpInput v-model:value="inputValue" placeholder="Basic usage" />
         <VxpInput v-model:value.lazy="inputValue1" autofocus placeholder="Lazy usage" />
       </VxpSpace>
-    </PageMain>
-    <PageMain>
+    </FaPageMain>
+    <FaPageMain>
       <VxpRadioGroup v-model:value="radioValue">
         <VxpRadio :label="1">
           A
@@ -132,33 +132,33 @@ const data = ref(
           D
         </VxpRadio>
       </VxpRadioGroup>
-    </PageMain>
-    <PageMain>
+    </FaPageMain>
+    <FaPageMain>
       <VxpSpace>
         <VxpDatePicker v-model:value="datePickerValue1" />
         <VxpDatePicker v-model:value="datePickerValue2" type="datetime" />
         <VxpDatePicker v-model:value="datePickerValue3" type="month" />
         <VxpDatePicker v-model:value="datePickerValue4" type="year" />
       </VxpSpace>
-    </PageMain>
-    <PageMain>
+    </FaPageMain>
+    <FaPageMain>
       <VxpSpace>
         <VxpSelect v-model:value="selectValue1" style="width: 120px;" :options="selectOptions1" />
         <VxpSelect v-model:value="selectValue2" style="width: 120px;" disabled :options="selectOptions2" />
         <VxpSelect v-model:value="selectValue3" style="width: 120px;" loading :options="selectOptions3" />
       </VxpSpace>
-    </PageMain>
-    <PageMain>
+    </FaPageMain>
+    <FaPageMain>
       <VxpSpace vertical>
         <VxpSlider v-model:value="sliderValue1" />
         <VxpSlider v-model:value="sliderValue2" range />
       </VxpSpace>
-    </PageMain>
-    <PageMain>
+    </FaPageMain>
+    <FaPageMain>
       <VxpSwitch v-model:checked="switchChecked" />
-    </PageMain>
-    <PageMain>
+    </FaPageMain>
+    <FaPageMain>
       <VxpTable :columns="columns" :data="data" :width="1000" :side-padding="[10, 5]" style="width: 100%;" />
-    </PageMain>
+    </FaPageMain>
   </div>
 </template>
